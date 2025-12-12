@@ -1,0 +1,21 @@
+table Period_Selector
+	lineageTag: 6684f5c0-9923-49de-b9b1-57b360fa02fc
+
+	column 'Period Label'
+		lineageTag: 8a902d6b-2e27-4cdf-bd73-5b8b6382cdde
+		sourceColumn: [Value1]
+
+	column Months
+		lineageTag: 9e468be8-cd55-4bdb-8cf4-b6018a6b5e18
+		sourceColumn: [Value2]
+
+	partition Period_Selector = calculated
+		mode: import
+		source =
+				{
+				    ("Last 4 Months", 4),
+				    ("Last 6 Months", 6),
+				    ("Last 8 Months", 8),
+				    ("Last 12 Months", 12)
+				}
+

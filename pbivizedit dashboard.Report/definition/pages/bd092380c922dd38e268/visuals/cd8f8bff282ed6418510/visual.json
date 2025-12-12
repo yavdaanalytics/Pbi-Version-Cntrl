@@ -1,0 +1,604 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "cd8f8bff282ed6418510",
+  "position": {
+    "x": 0,
+    "y": 460.18613230485454,
+    "z": 2000,
+    "height": 259.62740001676866,
+    "width": 1280.2790307705206,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Contacts Module"
+                    }
+                  },
+                  "Property": "Full_Name"
+                }
+              },
+              "queryRef": "Bigin - Contacts Module.Full_Name",
+              "nativeQueryRef": "Full_Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Deals Module"
+                    }
+                  },
+                  "Property": "Account Name"
+                }
+              },
+              "queryRef": "Bigin - Deals Module.Account Name",
+              "nativeQueryRef": "Account Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Deals Module"
+                    }
+                  },
+                  "Property": "Description"
+                }
+              },
+              "queryRef": "Bigin - Deals Module.Description",
+              "nativeQueryRef": "Description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Deals Module"
+                    }
+                  },
+                  "Property": "Sale_Type"
+                }
+              },
+              "queryRef": "Bigin - Deals Module.Sale_Type",
+              "nativeQueryRef": "Sale Type",
+              "displayName": "Sale Type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Deals Module"
+                    }
+                  },
+                  "Property": "Sum of Amount"
+                }
+              },
+              "queryRef": "Sum(Bigin - Deals Module.Sum of Amount)",
+              "nativeQueryRef": "Amount",
+              "displayName": "Amount"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Deals Module"
+                    }
+                  },
+                  "Property": "Closing_Date"
+                }
+              },
+              "queryRef": "Bigin - Deals Module.Closing_Date",
+              "nativeQueryRef": "Closing Date",
+              "displayName": "Closing Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Accounts Module"
+                    }
+                  },
+                  "Property": "Website"
+                }
+              },
+              "queryRef": "Bigin - Accounts Module.Website",
+              "nativeQueryRef": "Website"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Accounts Module"
+                    }
+                  },
+                  "Property": "Industry"
+                }
+              },
+              "queryRef": "Bigin - Accounts Module.Industry",
+              "nativeQueryRef": "Industry"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Accounts Module"
+                    }
+                  },
+                  "Property": "Company"
+                }
+              },
+              "queryRef": "Bigin - Accounts Module.Company",
+              "nativeQueryRef": "Company"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Contacts Module"
+                    }
+                  },
+                  "Property": "Country"
+                }
+              },
+              "queryRef": "Bigin - Contacts Module.Country",
+              "nativeQueryRef": "Country"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Contacts Module"
+                    }
+                  },
+                  "Property": "Email"
+                }
+              },
+              "queryRef": "Bigin - Contacts Module.Email",
+              "nativeQueryRef": "Email"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Accounts Module"
+                    }
+                  },
+                  "Property": "LinkedIn"
+                }
+              },
+              "queryRef": "Bigin - Accounts Module.LinkedIn",
+              "nativeQueryRef": "LinkedIn"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Accounts Module"
+                    }
+                  },
+                  "Property": "Primary Business Unit"
+                }
+              },
+              "queryRef": "Bigin - Accounts Module.Primary Business Unit",
+              "nativeQueryRef": "Primary Business Unit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Accounts Module"
+                    }
+                  },
+                  "Property": "Billing_Country"
+                }
+              },
+              "queryRef": "Bigin - Accounts Module.Billing_Country",
+              "nativeQueryRef": "Billing Country",
+              "displayName": "Billing Country"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Bigin - Deals Module"
+                  }
+                },
+                "Property": "Description"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.97773178157209D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Bigin - Contacts Module.Country"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "363.1451477344867D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Bigin - Deals Module.Description"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.07214833303931D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Bigin - Contacts Module.Email"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "110.91096220208613D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Bigin - Accounts Module.Company"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.81657127282638D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Bigin - Accounts Module.Industry"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "142.79518919914906D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Bigin - Deals Module.Account Name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "100.81656225349245D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Bigin - Contacts Module.Full_Name"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.1
+                    }
+                  }
+                }
+              }
+            },
+            "fontColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFD004'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'AlternatingRowsNew'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Detailed view'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFD004'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d84ae442355ccf288785",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Bigin - Deals Module"
+              }
+            },
+            "Property": "Package_Type"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "b",
+              "Entity": "Bigin - Deals Module",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "b"
+                          }
+                        },
+                        "Property": "Package_Type"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Suite'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

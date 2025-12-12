@@ -1,0 +1,66 @@
+relationship e3c76384-ecb1-49c0-8822-57abbd63c631
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Bigin - Accounts Module'.Created_Time
+	toColumn: LocalDateTable_933e3a4f-ea9e-4a68-91b9-2c159a74b0f0.Date
+
+relationship e74a81d6-5f4f-47c0-ac9c-add1e9218374
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Bigin - Contacts Module'.'Created Date'
+	toColumn: LocalDateTable_833a5ae2-2431-4a96-9c0c-9f1d0251d2d7.Date
+
+relationship 64a598c7-5acd-45a3-9080-8ec2e5edb483
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Bigin - Contacts Module'.Created_Time
+	toColumn: LocalDateTable_2e037970-dc3a-4c03-9576-ddf09a2e9679.Date
+
+relationship 751e3ead-e2a9-46a8-85ce-be333422c28f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Bigin - Contacts Module'.Date_Created_Offline
+	toColumn: LocalDateTable_b66261df-0ecb-45fa-8d78-6f2b9adac114.Date
+
+relationship 13c3819d-4fc3-48bd-89b9-ff3e19fe7c14
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Bigin - Deals Module'.'Created Date'
+	toColumn: LocalDateTable_92df7f55-e281-4629-9720-42daf5e27926.Date
+
+relationship ac68504c-e4ce-4e83-a920-1c30daabe874
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Bigin - Deals Module'.Created_Time
+	toColumn: LocalDateTable_c6ec1b9b-63ef-4999-82f3-90747d0e7703.Date
+
+relationship 49a0af1b-1c06-4d65-9d00-6df0925fcf5d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Bigin - Deals Module'.Last_Activity_Time
+	toColumn: LocalDateTable_c3005e78-709a-4457-9e2d-081d1639cd85.Date
+
+relationship 08d4e50a-995b-411f-98f8-10ed1fe489b3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Bigin - Deals Module'.Modified_Time
+	toColumn: LocalDateTable_d088d8e3-9e14-4173-852d-49c0ec373915.Date
+
+relationship 9c8a9dd9-9919-5f09-5742-7938300b0a53
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Bigin - Accounts Module'.id
+	toColumn: 'Bigin - Contacts Module'.id
+
+relationship c8a15a2b-519f-32ec-d9ec-0b3a0567e57e
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Bigin - Contacts Module'.id
+	toColumn: 'Bigin - Deals Module'.id
+
+relationship 94bffbbc-f535-4e1c-89dd-c09bf6e19cbb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Bigin - Deals Module'.Expiry_Date
+	toColumn: LocalDateTable_ef664571-69e0-4a1f-b5ba-29badf8558e8.Date
+
+relationship 979096f8-8993-45d5-b607-9b7665eeb058
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DateTable.Date
+	toColumn: LocalDateTable_9fbc82a5-b3a2-4c3f-9650-e1b6e741676b.Date
+
+relationship 6b9d96b6-3169-ce90-c862-d06ba9b7c95e
+	fromColumn: 'Bigin - Deals Module'.Closing_Date
+	toColumn: DateTable.Date
+

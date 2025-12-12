@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "pbivizedit dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "026afdee-a096-4d13-8e03-55fc05007fd4"
+  }
+}

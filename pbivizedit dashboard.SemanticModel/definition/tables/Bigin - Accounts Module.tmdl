@@ -1,0 +1,185 @@
+table 'Bigin - Accounts Module'
+	lineageTag: 61476f5b-55cd-4ea8-bdb4-184f200d3094
+
+	column Account_Name
+		dataType: string
+		lineageTag: eebeff86-fa4c-4f5d-beb7-f9314115f66d
+		summarizeBy: none
+		sourceColumn: Account_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company
+		dataType: string
+		lineageTag: ea0f680b-4aae-4d75-be6e-9e5e04a67c4d
+		summarizeBy: none
+		sourceColumn: Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Legal Name ID'
+		dataType: string
+		lineageTag: 61022da0-4742-4c9d-ba9c-3bcf43b818c2
+		summarizeBy: none
+		sourceColumn: Company Legal Name ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyFuzzy90
+		dataType: string
+		lineageTag: f025ef9e-5a29-4b06-a450-ab8461772e01
+		summarizeBy: none
+		sourceColumn: CompanyFuzzy90
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyFuzzy95
+		dataType: string
+		lineageTag: 20aa3a12-ed76-4c95-a3f7-dd83ea78bd95
+		summarizeBy: none
+		sourceColumn: CompanyFuzzy95
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactOf
+		dataType: string
+		lineageTag: a8d46808-8f52-487e-880c-86ff77315ecd
+		summarizeBy: none
+		sourceColumn: ContactOf
+
+		annotation SummarizationSetBy = Automatic
+
+	column Created_Time
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9a08dbbc-1208-4426-ac88-d4e5fb950607
+		summarizeBy: none
+		sourceColumn: Created_Time
+
+		variation Variation
+			isDefault
+			relationship: e3c76384-ecb1-49c0-8822-57abbd63c631
+			defaultHierarchy: LocalDateTable_933e3a4f-ea9e-4a68-91b9-2c159a74b0f0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Degree1
+		dataType: string
+		lineageTag: 154e3035-0c75-45cc-a80d-75e0939321c6
+		summarizeBy: none
+		sourceColumn: Degree1
+
+		annotation SummarizationSetBy = Automatic
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 948368c0-73ee-49bf-9041-70326c9ffb8a
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		dataType: string
+		lineageTag: 842084ab-5ca7-43c2-85d3-9fc525016601
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry_Sub_Group
+		dataType: string
+		lineageTag: 3e70fbb1-dd61-427c-a80a-37bbb00154a0
+		summarizeBy: none
+		sourceColumn: Industry_Sub_Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legal Name'
+		dataType: string
+		lineageTag: 4bc2545d-3d3c-4a1f-bbb1-9a70f33f2913
+		summarizeBy: none
+		sourceColumn: Legal Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column LinkedIn
+		dataType: string
+		lineageTag: 2bee6289-615f-4e61-b9cc-45bd39cbffde
+		summarizeBy: none
+		sourceColumn: LinkedIn
+
+		annotation SummarizationSetBy = Automatic
+
+	column No_Employees
+		dataType: string
+		lineageTag: 468ec9c0-53e1-4eef-9e53-1548b605e44d
+		summarizeBy: none
+		sourceColumn: No_Employees
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Business Unit'
+		dataType: string
+		lineageTag: 181eb55a-1ab4-4b92-bfd3-a52aa7e8a799
+		summarizeBy: none
+		sourceColumn: Primary Business Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column Website
+		dataType: string
+		lineageTag: 9accb19c-cd61-4c4c-a516-ce24edefa125
+		summarizeBy: none
+		sourceColumn: Website
+
+		annotation SummarizationSetBy = Automatic
+
+	column Billing_Country
+		dataType: string
+		lineageTag: 3590a256-c706-40ab-9711-2aee222e0239
+		summarizeBy: none
+		sourceColumn: Billing_Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Billing_State
+		dataType: string
+		lineageTag: 1ca85868-6134-4bfb-8c40-15533ffb0ae4
+		summarizeBy: none
+		sourceColumn: Billing_State
+
+		annotation SummarizationSetBy = Automatic
+
+	column All_Changed_Flag = ```
+			
+			IF(
+			    CALCULATE(
+			        COUNTROWS('Bigin - Deals Module'),
+			        'Bigin - Deals Module'[Visual_Purchased] = 'Bigin - Deals Module'[Product_original_interest]
+			    ) = 0,
+			    "All Changed",
+			    "Some Bought Original"
+			)
+			
+			```
+		lineageTag: a15c1fed-4c06-46de-9773-ce8491f424d4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Bigin - Accounts Module' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Mi\Yavda\Learning - 2025 Interns Batch Learning\Datasets\Bigin - Accounts Module.csv"),[Delimiter=",", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Account_Name", type text}, {"Company", type text}, {"Company Legal Name ID", type text}, {"CompanyFuzzy90", type text}, {"CompanyFuzzy95", type text}, {"ContactOf", type text}, {"Created_Time", type datetime}, {"Degree1", type text}, {"id", Int64.Type}, {"Industry", type text}, {"Industry_Sub_Group", type text}, {"Legal Name", type text}, {"LinkedIn", type text}, {"No_Employees", type text}, {"Primary Business Unit", type text}, {"Website", type text}, {"Billing_Country", type text}, {"Billing_State", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

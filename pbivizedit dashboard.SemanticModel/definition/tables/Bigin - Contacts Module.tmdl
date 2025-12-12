@@ -1,0 +1,132 @@
+table 'Bigin - Contacts Module'
+	lineageTag: fe31195b-3851-4bf3-9603-aa3b44a6498c
+
+	column Account_Id
+		dataType: string
+		lineageTag: bad58c26-c2e4-4cbe-bba7-b053f1a051db
+		summarizeBy: none
+		sourceColumn: Account_Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Account_Name
+		dataType: string
+		lineageTag: 255d9552-3135-46e0-a2ec-04424f3228b2
+		summarizeBy: none
+		sourceColumn: Account_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 8e7de2ea-f337-4e33-ad8f-584530f50838
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 369fb766-7120-4236-8306-23516904d4c7
+		summarizeBy: none
+		sourceColumn: Created Date
+
+		variation Variation
+			isDefault
+			relationship: e74a81d6-5f4f-47c0-ac9c-add1e9218374
+			defaultHierarchy: LocalDateTable_833a5ae2-2431-4a96-9c0c-9f1d0251d2d7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Created_Time
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5c86d07b-5353-4081-9334-746e1a776f67
+		summarizeBy: none
+		sourceColumn: Created_Time
+
+		variation Variation
+			isDefault
+			relationship: 64a598c7-5acd-45a3-9080-8ec2e5edb483
+			defaultHierarchy: LocalDateTable_2e037970-dc3a-4c03-9576-ddf09a2e9679.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date_Created_Offline
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c0003d88-f3e4-4a1d-b1d1-d12ff7159700
+		summarizeBy: none
+		sourceColumn: Date_Created_Offline
+
+		variation Variation
+			isDefault
+			relationship: 751e3ead-e2a9-46a8-85ce-be333422c28f
+			defaultHierarchy: LocalDateTable_b66261df-0ecb-45fa-8d78-6f2b9adac114.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: c539e765-0768-41c0-9b9b-1a1924d173e4
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column Full_Name
+		dataType: string
+		lineageTag: 0ef20b5a-037a-414a-8510-30c6c16f0c6c
+		summarizeBy: none
+		sourceColumn: Full_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 6fc26e68-459e-44b7-8efc-abfa2ef64a6e
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mailing_Country
+		dataType: string
+		lineageTag: 05aae93c-06e0-4ae7-a559-e99c3b534be8
+		summarizeBy: none
+		sourceColumn: Mailing_Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		dataType: string
+		lineageTag: 4871c2c2-2cb2-48c3-ad38-8630308a7a01
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: 70251d48-cade-47ff-a26e-10b0ff629161
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Bigin - Contacts Module' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Mi\Yavda\Learning - 2025 Interns Batch Learning\Datasets\Bigin - Contacts Module.csv"),[Delimiter=",", Columns=12, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Account_Id", type text}, {"Account_Name", type text}, {"Country", type text}, {"Created Date", type datetime}, {"Created_Time", type datetime}, {"Date_Created_Offline", type datetime}, {"Email", type text}, {"Full_Name", type text}, {"id", Int64.Type}, {"Mailing_Country", type text}, {"Source", type text}, {"Title", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

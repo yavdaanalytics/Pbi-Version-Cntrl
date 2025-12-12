@@ -1,0 +1,32 @@
+table KPI_Selector
+	lineageTag: b2c35d1a-129f-40f8-8d9c-c684bd2831e2
+
+	column KPI
+		lineageTag: 9d179302-12c2-4dec-aca5-4e7b5c6e4f3b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [KPI]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KPI_Selector = calculated
+		mode: import
+		source = ```
+				
+				DATATABLE (
+				    "KPI", STRING,
+				    {
+				        { "Total Amount" },
+				        
+				        { "Closed Won Count" },
+				        { "Average Deal Size" },
+				        { "Closed Lost Deals" },
+				        { "Average Closing Days" }
+				    }
+				)
+				
+				
+				```
+
+	annotation PBI_Id = 2662f911bd6148b6af89020764362322
+

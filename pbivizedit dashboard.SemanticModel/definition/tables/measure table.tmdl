@@ -1,0 +1,217 @@
+table 'measure table'
+	lineageTag: 8321f771-c6ac-4076-9cc1-f2ecad96841a
+
+	measure Count_closed_won = CALCULATE(COUNTROWS('Bigin - Deals Module'),'Bigin - Deals Module'[Stage] IN {"Closed Won","Purchased Subscription"})
+		formatString: 0
+		lineageTag: cbba2eb1-962f-4f43-8638-73556f3236a9
+
+	measure Closed_Lost_or_Expired = ```
+			
+			CALCULATE (
+			    COUNTROWS ( 'Bigin - Deals Module' ),
+			    'Bigin - Deals Module'[Stage] IN { "Closed Lost", "Closed Expired" }
+			)
+			
+			```
+		formatString: 0
+		lineageTag: be650f5a-dbaf-4028-8326-1174034db227
+
+	measure Avg_Closing_Days = ```
+			
+			AVERAGEX (
+			    'Bigin - Deals Module',
+			    DATEDIFF('Bigin - Deals Module'[Created Date], 'Bigin - Deals Module'[Closing_Date], DAY)
+			)
+			
+			```
+		lineageTag: bd1a5e08-afc6-4332-877f-0712c76c3020
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Selected_KPI_Value = ```
+			
+			SWITCH (
+			    SELECTEDVALUE ( KPI_Selector[KPI] ),
+			    "Total Amount", [Total_Deal_Amount],
+			    "Average Deal Size", AVERAGE ( 'Bigin - Deals Module'[Sum of Amount] ),
+			    "Closed Lost Deals", [Closed_Lost_or_Expired],
+			    "Average Closing Days", [Avg_Closing_Days],
+			    "Closed Won Count" ,[Count_closed_won]
+			)
+			
+			```
+		lineageTag: 21e4a318-8167-4028-9cd0-147c485ea536
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure LineChart_Title = ```
+			
+			"Trend of " & SELECTEDVALUE ( KPI_Selector[KPI], "KPI" ) 
+			    & " over Time"
+			
+			```
+		lineageTag: 05d1d9d6-6912-4b62-bee9-72afa722b2b2
+
+	measure Total_Deal_Amount = ```
+			
+			SUM ( 'Bigin - Deals Module'[Sum of Amount] )
+			
+			```
+		formatString: 0
+		lineageTag: 4b9d6391-4e5c-4067-990c-70e06039548e
+
+	measure Customer_Revenue = ```
+			
+			CALCULATE(
+			    SUM('Bigin - Deals Module'[Sum of Amount]),
+			    'Bigin - Deals Module'[Package_Type] = "Suite",
+			    'Bigin - Deals Module'[Stage] = "Closed Won"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: ea56ad70-8b71-480d-aecf-066a94addab3
+
+	measure Product_Purchased_Count = ```
+			
+			CALCULATE (
+			    COUNTROWS ( 'Bigin - Deals Module' ),
+			    FILTER (
+			        'Bigin - Deals Module',
+			        'Bigin - Deals Module'[Visual_Purchased] = MAX ( 'Bigin - Deals Module'[Product_original_interest] )
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: f36b16f9-4822-4a1b-9e39-886cd2112287
+
+	measure Interested_Customers = ```
+			
+			VAR Product = SELECTEDVALUE('Bigin - Deals Module'[Product_original_interest])
+			RETURN
+			CALCULATE(
+			    DISTINCTCOUNT('Bigin - Deals Module'[Account ID]),
+			    'Bigin - Deals Module'[Product_original_interest] = Product
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 5915f628-b6ae-4b1a-8ae6-a539f6f430b5
+
+	measure Bought_Customers = ```
+			
+			VAR Product = SELECTEDVALUE('Bigin - Deals Module'[Product_original_interest])
+			
+			VAR InterestedAccounts =
+			    DISTINCT (
+			        SELECTCOLUMNS(
+			            FILTER(
+			                'Bigin - Deals Module',
+			                'Bigin - Deals Module'[Product_original_interest] = Product
+			            ),
+			            "Account", 'Bigin - Deals Module'[Account ID]
+			        )
+			    )
+			
+			VAR PurchasedAccounts =
+			    DISTINCT (
+			        SELECTCOLUMNS(
+			            FILTER(
+			                'Bigin - Deals Module',
+			                'Bigin - Deals Module'[Visual_Purchased] = Product
+			            ),
+			            "Account", 'Bigin - Deals Module'[Account ID]
+			        )
+			    )
+			
+			VAR Intersection = INTERSECT(InterestedAccounts, PurchasedAccounts)
+			
+			RETURN
+			COUNTROWS(Intersection)
+			
+			```
+		formatString: 0
+		lineageTag: 28dd552a-d190-4203-98d9-2efd01d348ef
+
+	measure Interest_Conversion_Pct = ```
+			
+			DIVIDE( [Bought_Customers], [Interested_Customers], 0 )
+			
+			```
+		lineageTag: b3e6d703-53ad-4815-86ac-c763c85eecf9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Total_Interest = COUNTROWS('Bigin - Deals Module')
+		formatString: 0
+		lineageTag: 96127a49-c398-4a17-a163-877e7cd53fc6
+
+	measure Interest_Count = COUNTROWS( FILTER('Bigin - Deals Module', NOT(ISBLANK('Bigin - Deals Module'[Product_original_interest])) ) )
+		formatString: 0
+		lineageTag: 872805ea-4d61-430c-b384-0b6cd77f0abf
+
+	measure 'Interest %' = ```
+			
+			DIVIDE(
+			    COUNTROWS(
+			        FILTER(
+			            'Bigin - Deals Module',
+			            NOT( ISBLANK( 'Bigin - Deals Module'[Product_original_interest] ) )
+			        )
+			    ),
+			    COUNTROWS( 'Bigin - Deals Module' )
+			)
+			
+			```
+		lineageTag: 2504b1e1-a325-4d0a-a7c2-7227da898187
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Purchase_Count = COUNTROWS( FILTER('Bigin - Deals Module', NOT(ISBLANK('Bigin - Deals Module'[Visual_Purchased])) ) )
+		formatString: 0
+		lineageTag: 3a6912cc-e40c-4f1a-b49c-225952eeba67
+
+	measure 'Purchase %' = ```
+			
+			DIVIDE(
+			    COUNTROWS(
+			        FILTER(
+			            'Bigin - Deals Module',
+			            NOT( ISBLANK( 'Bigin - Deals Module'[Visual_Purchased] ) )
+			        )
+			    ),
+			    COUNTROWS( 'Bigin - Deals Module' )
+			)
+			
+			```
+		lineageTag: 80b5d98b-87ba-4cd5-81b6-7d2258701a1f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Sales' = ```
+			CALCULATE(
+			    SUM('Bigin - Deals Module'[Sum of Amount]),
+			    ALL('Bigin - Deals Module'[Products])
+			)
+			
+			```
+		formatString: 0
+		isHidden
+		lineageTag: ef1f1949-f53f-4fde-accd-65bd775467b2
+
+	column Column
+		formatString: 0
+		lineageTag: 0c775ebc-3977-4b04-807d-b6ab11a32df9
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'measure table' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 82c99124b86b4ab6ab22b6a5e70359e6
+

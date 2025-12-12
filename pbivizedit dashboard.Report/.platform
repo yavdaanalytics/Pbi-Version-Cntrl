@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "pbivizedit dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ee7ff71e-3138-4b18-a9c8-1b20626c44a7"
+  }
+}

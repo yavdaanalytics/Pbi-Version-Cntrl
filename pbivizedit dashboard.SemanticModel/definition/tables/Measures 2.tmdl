@@ -1,0 +1,70 @@
+table 'Measures 2'
+	lineageTag: c08b2755-949c-447e-93a4-eabcfe8bcfcc
+
+	measure 'Total Sales Amount' = SUM('Bigin - Deals Module'[Sum of Amount])
+		formatString: $#,0.00
+		lineageTag: 79e2982f-4d01-434f-a386-870c743a7b6a
+
+	/// Total sales amount for the latest year based on the latest closing date available
+	measure 'Total Sales Latest Year' =
+			VAR LatestDate = MAX('Bigin - Deals Module'[Closing_Date])
+			VAR LatestYear = YEAR(LatestDate)
+			RETURN
+			CALCULATE(
+			    SUM('Bigin - Deals Module'[Sum of Amount]),
+			    YEAR('Bigin - Deals Module'[Closing_Date]) = LatestYear
+			)
+		formatString: $#,0.00
+		lineageTag: 56636176-a9fc-485b-b3ce-86d9a11a8474
+
+	/// Calculates total sales amount for the period selected in the Period_Selector slicer based on the latest available date
+	measure 'Sales by Selected Period' = ```
+			VAR LatestDate = MAX('Bigin - Deals Module'[Closing_Date])
+			VAR SelectedMonths = SELECTEDVALUE('Period_Selector'[Months])
+			VAR StartDate = EDATE(LatestDate, -SelectedMonths)
+			VAR Result = 
+			    IF(
+			        ISBLANK(SelectedMonths),
+			        BLANK(),
+			        CALCULATE(
+			            SUM('Bigin - Deals Module'[Sum of Amount]),
+			            'Bigin - Deals Module'[Closing_Date] > StartDate,
+			            'Bigin - Deals Module'[Closing_Date] <= LatestDate
+			        )
+			    )
+			RETURN Result
+			```
+		formatString: $#,0.00
+		lineageTag: ec28e14f-9cc0-4085-be94-31603c1da5ce
+
+	/// Shows the currently selected period label for use in titles or cards
+	measure 'Selected Period Label' =
+			VAR SelectedLabel = SELECTEDVALUE('Period_Selector'[Period Label], "No Period Selected")
+			RETURN SelectedLabel
+		lineageTag: 9ab6f29c-a86d-4caa-b275-afa6301b6d8d
+
+	/// Shows the actual date range for the selected period
+	measure 'Selected Period Date Range' = ```
+			VAR LatestDate = MAX('Bigin - Deals Module'[Closing_Date])
+			VAR SelectedMonths = SELECTEDVALUE('Period_Selector'[Months])
+			VAR StartDate = EDATE(LatestDate, -SelectedMonths)
+			VAR Result = 
+			    IF(
+			        ISBLANK(SelectedMonths),
+			        "No Period Selected",
+			        FORMAT(StartDate, "MMM DD, YYYY") & " - " & FORMAT(LatestDate, "MMM DD, YYYY")
+			    )
+			RETURN Result
+			```
+		lineageTag: 71cd1895-0abd-4e3a-9c7d-829b631045d0
+
+	column Value
+		isHidden
+		lineageTag: 123a5097-bc1d-408a-a769-e8c8e9fd0eed
+		isNameInferred
+		sourceColumn: [Value]
+
+	partition 'Measures 2' = calculated
+		mode: import
+		source = {1}
+

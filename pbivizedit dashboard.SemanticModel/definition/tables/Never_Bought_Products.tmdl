@@ -1,0 +1,34 @@
+table Never_Bought_Products
+	lineageTag: 61b59942-177c-4750-9403-cedb2454c707
+
+	column Product_original_interest
+		lineageTag: c983ea6a-4397-4bf8-bedd-22c96fa3b173
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Bigin - Deals Module[Product_original_interest]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Never_Bought_Products = calculated
+		mode: import
+		source = ```
+				
+				FILTER (
+				    SUMMARIZE (
+				        'Bigin - Deals Module',
+				        'Bigin - Deals Module'[Product_original_interest]
+				    ),
+				    CALCULATE (
+				        COUNTROWS (
+				            FILTER (
+				                'Bigin - Deals Module',
+				                'Bigin - Deals Module'[Visual_Purchased] = 'Bigin - Deals Module'[Product_original_interest]
+				            )
+				        )
+				    ) = 0
+				)
+				
+				```
+
+	annotation PBI_Id = dea402e807fe4a3b8e4d1d2529a304ab
+

@@ -1,0 +1,340 @@
+table 'Bigin - Deals Module'
+	lineageTag: 57fe2316-4f51-436d-b4b8-916c0c5be08d
+
+	column 'Account ID'
+		dataType: string
+		lineageTag: 26cc7b4d-a816-4367-9325-4fd7ef4413e2
+		summarizeBy: none
+		sourceColumn: Account ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Name'
+		dataType: string
+		lineageTag: bab23b2d-a7e6-44f5-8f41-8940874554ca
+		summarizeBy: none
+		sourceColumn: Account Name
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sum of Amount'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6cb20966-5da4-47e1-b3e8-654a34876a91
+		summarizeBy: sum
+		sourceColumn: Sum of Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column Buyer
+		dataType: string
+		lineageTag: c4181990-9002-4cc1-9c96-d3809c15dd6e
+		summarizeBy: none
+		sourceColumn: Buyer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Closing_Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7c5a1e79-f289-4a24-9f81-e247f9dd515b
+		summarizeBy: none
+		sourceColumn: Closing_Date
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Contact ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3362efb8-a264-449f-adcb-7ba2c1c34127
+		summarizeBy: count
+		sourceColumn: Contact ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Contact Name'
+		dataType: string
+		lineageTag: 27a8813f-a5b7-4319-ad1e-ba26ab03e288
+		summarizeBy: none
+		sourceColumn: Contact Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: e2b98d58-86c2-4c1e-99c3-1aa15cf66f3e
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0dc84282-c708-4c76-88a0-86b3f20e1232
+		summarizeBy: none
+		sourceColumn: Created Date
+
+		variation Variation
+			isDefault
+			relationship: 13c3819d-4fc3-48bd-89b9-ff3e19fe7c14
+			defaultHierarchy: LocalDateTable_92df7f55-e281-4629-9720-42daf5e27926.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Created_Time
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5bf32e74-e54e-4cec-96d6-820c54f59b1e
+		summarizeBy: none
+		sourceColumn: Created_Time
+
+		variation Variation
+			isDefault
+			relationship: ac68504c-e4ce-4e83-a920-1c30daabe874
+			defaultHierarchy: LocalDateTable_c6ec1b9b-63ef-4999-82f3-90747d0e7703.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Deal_Name
+		dataType: string
+		lineageTag: b7d55075-2502-44a8-bb58-e5e150ba89f0
+		summarizeBy: none
+		sourceColumn: Deal_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: cd919e99-81bf-415b-b4d1-a29186b21634
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Domain
+		dataType: string
+		lineageTag: c112e5b4-dc3b-45f8-b948-d815de5d648b
+		summarizeBy: none
+		sourceColumn: Domain
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: b2f7a41f-56c8-4c19-923c-7c8fe476ebc3
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column Function
+		dataType: string
+		lineageTag: 2c38339e-998b-4d93-891b-5978d12e738e
+		summarizeBy: none
+		sourceColumn: Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: ac0fc01e-e4d2-4176-9fd2-fed184274388
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Last_Activity_Time
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e73e481c-e133-46ac-9ee3-f0cb2ffe9b50
+		summarizeBy: none
+		sourceColumn: Last_Activity_Time
+
+		variation Variation
+			isDefault
+			relationship: 49a0af1b-1c06-4d65-9d00-6df0925fcf5d
+			defaultHierarchy: LocalDateTable_c3005e78-709a-4457-9e2d-081d1639cd85.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column License_Environment
+		dataType: string
+		lineageTag: 006e2b04-56d2-4f02-a4b3-2cb153d7e801
+		summarizeBy: none
+		sourceColumn: License_Environment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Modified_Time
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ce283210-192c-4e3f-a488-5165463dccd8
+		summarizeBy: none
+		sourceColumn: Modified_Time
+
+		variation Variation
+			isDefault
+			relationship: 08d4e50a-995b-411f-98f8-10ed1fe489b3
+			defaultHierarchy: LocalDateTable_d088d8e3-9e14-4173-852d-49c0ec373915.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Package_Type
+		dataType: string
+		lineageTag: 94ba9f4e-94cc-4650-88ac-d66a533533ae
+		summarizeBy: none
+		sourceColumn: Package_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pipeline
+		dataType: string
+		lineageTag: 8002636a-e04b-47f3-ad1d-0737794570e8
+		summarizeBy: none
+		sourceColumn: Pipeline
+
+		annotation SummarizationSetBy = Automatic
+
+	column Priority
+		dataType: string
+		lineageTag: c6674e3b-0a63-4dfa-8b51-6d177335c74f
+		summarizeBy: none
+		sourceColumn: Priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_original_interest
+		dataType: string
+		lineageTag: 47538447-13cf-4637-bf8d-ee7940e12688
+		summarizeBy: none
+		sourceColumn: Product_original_interest
+
+		annotation SummarizationSetBy = Automatic
+
+	column Products
+		dataType: string
+		lineageTag: 00143748-c1ed-4771-aeab-745b065565f9
+		summarizeBy: none
+		sourceColumn: Products
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sale_Type
+		dataType: string
+		lineageTag: 2582ba51-ee89-456f-86c2-448a7903006b
+		summarizeBy: none
+		sourceColumn: Sale_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		dataType: string
+		lineageTag: 29bd4dbf-e861-4fe2-9c97-2de8b4f79ac5
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stage
+		dataType: string
+		lineageTag: ca7ea8fa-60ad-47d0-b4d7-de82d1f1f708
+		summarizeBy: none
+		sourceColumn: Stage
+
+		annotation SummarizationSetBy = Automatic
+
+	column Visual_Purchased
+		dataType: string
+		lineageTag: 47dd74b8-775b-4527-8d0d-e1d30658b0b6
+		summarizeBy: none
+		sourceColumn: Visual_Purchased
+
+		annotation SummarizationSetBy = Automatic
+
+	column Visual_Type
+		dataType: string
+		lineageTag: 35fbb9cc-3a67-41b6-862f-49a03ca65c90
+		summarizeBy: none
+		sourceColumn: Visual_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Expiry_Date = ```
+			DATEADD ( 'Bigin - Deals Module'[Closing_Date], 1, YEAR )
+			
+			```
+		formatString: Long Date
+		lineageTag: 072d6741-d429-486c-9f29-ee375bf0cd9d
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 94bffbbc-f535-4e1c-89dd-c09bf6e19cbb
+			defaultHierarchy: LocalDateTable_ef664571-69e0-4a1f-b5ba-29badf8558e8.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Days_From_Purchase = ```
+			
+			DATEDIFF ( 'Bigin - Deals Module'[Closing_Date], TODAY(), DAY )
+			
+			```
+		formatString: 0
+		lineageTag: c969ac44-6309-4bee-932f-5c8e507f418b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Interest_Not_Bought = ```
+			
+			IF ( [Product_Purchased_Count] = 0, "Not Bought", "Bought" )
+			
+			```
+		lineageTag: 0836d170-fc07-45a9-a377-b44bfa82970d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Interest_Bought_Status = ```
+			
+			IF (
+			    CONTAINS (
+			        VALUES ( 'Bigin - Deals Module'[Visual_Purchased] ),
+			        'Bigin - Deals Module'[Visual_Purchased], 'Bigin - Deals Module'[Product_original_interest]
+			    ),
+			    "Bought",
+			    "Not Bought"
+			)
+			
+			```
+		lineageTag: 654d7d62-5b40-455d-8212-c470e429c452
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Bigin - Deals Module' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Mi\Yavda\Learning - 2025 Interns Batch Learning\Datasets\Bigin - Deals Module.csv"),[Delimiter=",", Columns=29, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Account ID", type text}, {"Account Name", type text}, {"Sum of Amount", Int64.Type}, {"Buyer", type text}, {"Closing_Date", type datetime}, {"Contact ID", Int64.Type}, {"Contact Name", type text}, {"Country", type text}, {"Created Date", type datetime}, {"Created_Time", type datetime}, {"Deal_Name", type text}, {"Description", type text}, {"Domain", type text}, {"Email", type text}, {"Function", type text}, {"id", Int64.Type}, {"Last_Activity_Time", type datetime}, {"License_Environment", type text}, {"Modified_Time", type datetime}, {"Package_Type", type text}, {"Pipeline", type text}, {"Priority", type text}, {"Product_original_interest", type text}, {"Products", type text}, {"Sale_Type", type text}, {"Source", type text}, {"Stage", type text}, {"Visual_Purchased", type text}, {"Visual_Type", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

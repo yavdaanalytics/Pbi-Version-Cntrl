@@ -1,0 +1,106 @@
+table paretoTable
+	lineageTag: 8afcbde5-5b1d-4892-a3f4-346bf9bf60fb
+
+	measure 'Sales by Product' = ```
+			
+			SUM('Bigin - Deals Module'[Sum of Amount])
+			
+			```
+		formatString: 0
+		lineageTag: ffb6b749-690c-45e4-b414-633a219653a4
+
+	measure Total_Sales = ```
+			
+			CALCULATE(
+			    [Sales by Product],
+			    ALLSELECTED('Bigin - Deals Module'[Products])
+			)
+			
+			```
+		formatString: 0
+		lineageTag: d325a02b-8b32-471c-aa10-b7ee46f9035a
+
+	measure 'Cumulative Sales' = ```
+			
+			VAR CurrentProduct = MAX('Bigin - Deals Module'[Products])
+			RETURN
+			CALCULATE(
+			    [Sales by Product],
+			    FILTER(
+			        ALLSELECTED('Bigin - Deals Module'[Products]),
+			        [Sales by Product] >=
+			        CALCULATE(SUM('Bigin - Deals Module'[Sum of Amount]), 'Bigin - Deals Module'[Products] = CurrentProduct)
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: aa69dd03-37aa-4c62-ab16-840434bb3611
+
+	measure 'Product Rank' = ```
+			
+			RANKX (
+			    ALLSELECTED ( 'Bigin - Deals Module'[Products] ),
+			    [Sales by Product],
+			    ,
+			    DESC,
+			    DENSE
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 8fc6d354-370b-42f2-bbf7-1dcd498bb4d9
+
+	measure 'Current Product Rank' = ```
+			
+			MAXX (
+			    VALUES ( 'Bigin - Deals Module'[Products] ),
+			    [Product Rank]
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 2ddc3f29-16c3-4fad-aca6-cc30a7c2a5fe
+
+	measure 'Pareto %' = ```
+			
+			DIVIDE ( [Cumulative Sales], [Total_Sales] )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 97fc8a9d-2032-4f7b-b233-9f38a3733305
+
+	measure 'Top 80 Flag' = ```
+			
+			IF ( [Pareto %] <= 0.8, "Top 80%", "Rest" )
+			
+			```
+		lineageTag: 68affd91-332a-4f74-a9d3-84e06c033dd3
+
+	measure 'Pareto 80% Line' = ```
+			
+			IF(
+			    NOT(ISBLANK([Pareto %])),
+			    0.8
+			)
+			
+			```
+		lineageTag: 989d1d66-da23-484f-b19b-120719ec97a3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		formatString: 0
+		lineageTag: 08001a6c-ae63-4245-98d4-a9b12c3ee067
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition paretoTable = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 72081b65c53244429e01cd73a0f2d6ec
+

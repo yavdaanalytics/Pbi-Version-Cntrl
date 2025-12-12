@@ -1,0 +1,146 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 714.52586206896547,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Bigin - Accounts Module",
+          "nodeLineageTag": "61476f5b-55cd-4ea8-bdb4-184f200d3094",
+          "size": {
+            "height": 455,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 284,
+            "y": 0
+          },
+          "nodeIndex": "Bigin - Contacts Module",
+          "nodeLineageTag": "fe31195b-3851-4bf3-9603-aa3b44a6498c",
+          "size": {
+            "height": 496,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 0
+          },
+          "nodeIndex": "Bigin - Deals Module",
+          "nodeLineageTag": "57fe2316-4f51-436d-b4b8-916c0c5be08d",
+          "size": {
+            "height": 406,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 148
+          },
+          "nodeIndex": "measure table",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1136,
+            "y": 148
+          },
+          "nodeIndex": "KPI_Selector",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 873.39999389648438,
+            "y": 379
+          },
+          "nodeIndex": "DateTable",
+          "nodeLineageTag": "2400f4fb-d7bd-4e92-998f-0b1e7d770e08",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1420,
+            "y": 189.5
+          },
+          "nodeIndex": "Never_Bought_Products",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1704,
+            "y": 189.5
+          },
+          "nodeIndex": "paretoTable",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1988,
+            "y": 189.5
+          },
+          "nodeIndex": "Measures 2",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2272,
+            "y": 225.5
+          },
+          "nodeIndex": "Period_Selector",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 95.867768595041326,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

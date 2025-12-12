@@ -1,0 +1,38 @@
+model Model
+	culture: en-GB
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Bigin - Accounts Module","Bigin - Contacts Module","Bigin - Deals Module"]
+
+annotation PBI_ProTooling = ["MCP-PBIModeling","DevMode"]
+
+ref table 'Bigin - Accounts Module'
+ref table DateTableTemplate_34f8650b-a8c7-4475-aa86-6032919416ee
+ref table LocalDateTable_933e3a4f-ea9e-4a68-91b9-2c159a74b0f0
+ref table 'Bigin - Contacts Module'
+ref table LocalDateTable_833a5ae2-2431-4a96-9c0c-9f1d0251d2d7
+ref table LocalDateTable_2e037970-dc3a-4c03-9576-ddf09a2e9679
+ref table LocalDateTable_b66261df-0ecb-45fa-8d78-6f2b9adac114
+ref table 'Bigin - Deals Module'
+ref table LocalDateTable_92df7f55-e281-4629-9720-42daf5e27926
+ref table LocalDateTable_c6ec1b9b-63ef-4999-82f3-90747d0e7703
+ref table LocalDateTable_c3005e78-709a-4457-9e2d-081d1639cd85
+ref table LocalDateTable_d088d8e3-9e14-4173-852d-49c0ec373915
+ref table LocalDateTable_ef664571-69e0-4a1f-b5ba-29badf8558e8
+ref table 'measure table'
+ref table KPI_Selector
+ref table DateTable
+ref table LocalDateTable_9fbc82a5-b3a2-4c3f-9650-e1b6e741676b
+ref table Never_Bought_Products
+ref table paretoTable
+ref table 'Measures 2'
+ref table Period_Selector
+
+ref cultureInfo en-GB
+
