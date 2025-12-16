@@ -1,0 +1,111 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "ae4527aa7774e5d5bbe9",
+  "position": {
+    "x": 9.4488915545918015,
+    "y": 0,
+    "z": 0,
+    "height": 279.68719001591734,
+    "width": 672.76107868693634
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Accounts Module"
+                    }
+                  },
+                  "Property": "Account_Name"
+                }
+              },
+              "queryRef": "Bigin - Accounts Module.Account_Name",
+              "nativeQueryRef": "Account_Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Accounts Module"
+                    }
+                  },
+                  "Property": "Billing_State"
+                }
+              },
+              "queryRef": "Bigin - Accounts Module.Billing_State",
+              "nativeQueryRef": "Billing_State"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Bigin - Accounts Module"
+                    }
+                  },
+                  "Property": "Billing_Country"
+                }
+              },
+              "queryRef": "Bigin - Accounts Module.Billing_Country",
+              "nativeQueryRef": "Billing_Country"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c903afcac6446628019f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Bigin - Accounts Module"
+              }
+            },
+            "Property": "Account_Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7af5afa0ea3d6e4ac0a4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Bigin - Accounts Module"
+              }
+            },
+            "Property": "Billing_Country"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a1af0ee02ae92940900a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Bigin - Accounts Module"
+              }
+            },
+            "Property": "Billing_State"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}
