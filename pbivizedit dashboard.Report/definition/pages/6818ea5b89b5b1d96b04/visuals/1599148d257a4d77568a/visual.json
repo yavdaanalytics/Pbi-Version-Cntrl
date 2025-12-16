@@ -1,10 +1,10 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "ae4527aa7774e5d5bbe9",
+  "name": "1599148d257a4d77568a",
   "position": {
-    "x": 519.68903550254913,
-    "y": 0,
-    "z": 0,
+    "x": 35.905787907448847,
+    "y": 309.92364299061109,
+    "z": 1,
     "height": 279.68719001591734,
     "width": 672.76107868693634
   },
@@ -65,7 +65,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "c903afcac6446628019f",
+        "name": "b7437771ab80d44a2835",
         "field": {
           "Column": {
             "Expression": {
@@ -79,21 +79,7 @@
         "type": "Categorical"
       },
       {
-        "name": "7af5afa0ea3d6e4ac0a4",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Bigin - Accounts Module"
-              }
-            },
-            "Property": "Billing_Country"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a1af0ee02ae92940900a",
+        "name": "ae061a7f5e5a3ed63010",
         "field": {
           "Column": {
             "Expression": {
@@ -102,6 +88,20 @@
               }
             },
             "Property": "Billing_State"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c7b2fcc18ee5abfe89d3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Bigin - Accounts Module"
+              }
+            },
+            "Property": "Billing_Country"
           }
         },
         "type": "Categorical"

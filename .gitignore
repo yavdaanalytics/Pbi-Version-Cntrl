@@ -1,2 +1,34 @@
+# -----------------------------
+# Power BI PBIP local files
+# -----------------------------
 **/.pbi/localSettings.json
 **/.pbi/cache.abf
+**/.pbi/*cache*
+
+# -----------------------------
+# Auto Git watcher scripts
+# -----------------------------
+auto_git_pbip.py
+*.watcher.py
+*.autogit.py
+
+# -----------------------------
+# Python runtime junk
+# -----------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# -----------------------------
+# OS noise
+# -----------------------------
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+# Logs (optional)
+# -----------------------------
+*.log
